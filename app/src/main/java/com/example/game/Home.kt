@@ -3,15 +3,7 @@ package com.example.game
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.IconButton
 import androidx.compose.material.TopAppBar
@@ -43,12 +35,11 @@ fun TopBar() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             // Profile Icon
-            IconButton(onClick = {  /* Handle Profile icon click */ }) {
+            IconButton(onClick = { /* Handle Profile icon click */ }) {
                 Image(
                     modifier = Modifier
                         .padding(1.dp)
-                        .width(40.dp)
-                        .height(40.dp),
+                        .size(40.dp),
                     painter = painterResource(id = R.drawable.ic_profile),
                     contentDescription = "Profile",
                     contentScale = ContentScale.Crop
@@ -63,22 +54,17 @@ fun TopBar() {
                     .border(width = 1.dp, color = Color(0xFFB6B6B6), shape = RoundedCornerShape(50))
                     .background(color = Color(0x1AFFFFFF), shape = RoundedCornerShape(50))
                     .padding(horizontal = 8.dp, vertical = 4.dp),
-                horizontalArrangement = Arrangement.spacedBy(7.dp, Alignment.Start),
+                horizontalArrangement = Arrangement.spacedBy(7.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    modifier = Modifier
-                        .padding(1.dp)
-                        .size(20.dp),
+                    modifier = Modifier.size(20.dp),
                     painter = painterResource(id = R.drawable.twemoji_coin),
                     contentDescription = "Coins",
                     contentScale = ContentScale.Crop
                 )
 
                 Text(
-                    modifier = Modifier
-                        .width(30.dp)
-                        .height(15.dp),
                     text = "2456",
                     style = TextStyle(
                         fontSize = 12.sp,
@@ -93,10 +79,7 @@ fun TopBar() {
             // Notification Icon
             IconButton(onClick = { /* Handle notification click */ }) {
                 Image(
-                    modifier = Modifier
-                        .padding(1.dp)
-                        .width(24.dp)
-                        .height(24.dp),
+                    modifier = Modifier.size(24.dp),
                     painter = painterResource(id = R.drawable.ic_notification),
                     contentDescription = "Notifications",
                     contentScale = ContentScale.Crop
@@ -105,5 +88,3 @@ fun TopBar() {
         }
     }
 }
-
-

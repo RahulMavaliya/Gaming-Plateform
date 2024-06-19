@@ -1,40 +1,26 @@
 package com.example.game
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.runtime.Composable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Icon
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.rememberPagerState
 
 @Preview
 @Composable
@@ -51,40 +37,51 @@ fun NavBar() {
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Icon(
-            modifier = Modifier
-                .size(24.dp)
-                .clickable { selectedIndex = 0 },
-            painter = painterResource(id = R.drawable.ic_home),
+        NavBarItem(
+            iconId = R.drawable.ic_home,
             contentDescription = "Home",
-            tint = if (selectedIndex == 0) Color.White else Color.Gray
+            isSelected = selectedIndex == 0,
+            onClick = { selectedIndex = 0 }
         )
 
-        Icon(
-            modifier = Modifier
-                .size(24.dp)
-                .clickable { selectedIndex = 1 },
-            painter = painterResource(id = R.drawable.solar_cup),
+        NavBarItem(
+            iconId = R.drawable.solar_cup,
             contentDescription = "Cup",
-            tint = if (selectedIndex == 1) Color.White else Color.Gray
+            isSelected = selectedIndex == 1,
+            onClick = { selectedIndex = 1 }
         )
 
-        Icon(
-            modifier = Modifier
-                .size(36.dp)
-                .clickable { selectedIndex = 2 },
-            painter = painterResource(id = R.drawable.charity_group),
+        NavBarItem(
+            iconId = R.drawable.charity_group,
             contentDescription = "Groups",
-            tint = if (selectedIndex == 2) Color.White else Color.Gray
+            isSelected = selectedIndex == 2,
+            iconSize = 36.dp,
+            onClick = { selectedIndex = 2 }
         )
 
-        Icon(
-            modifier = Modifier
-                .size(24.dp)
-                .clickable { selectedIndex = 3 },
-            painter = painterResource(id = R.drawable.stream),
+        NavBarItem(
+            iconId = R.drawable.stream,
             contentDescription = "Stream",
-            tint = if (selectedIndex == 3) Color.White else Color.Gray
+            isSelected = selectedIndex == 3,
+            onClick = { selectedIndex = 3 }
         )
     }
+}
+
+@Composable
+fun NavBarItem(
+    iconId: Int,
+    contentDescription: String,
+    isSelected: Boolean,
+    iconSize: Dp = 24.dp,
+    onClick: () -> Unit
+) {
+    Icon(
+        modifier = Modifier
+            .size(iconSize)
+            .clickable { onClick() },
+        painter = painterResource(id = iconId),
+        contentDescription = contentDescription,
+        tint = if (isSelected) Color.White else Color.Gray
+    )
 }

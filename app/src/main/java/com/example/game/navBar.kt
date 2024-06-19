@@ -64,7 +64,7 @@ fun NavBar() {
             modifier = Modifier
                 .size(24.dp)
                 .clickable { selectedIndex = 1 },
-            painter = painterResource(id = R.drawable.solar_cup_bold),
+            painter = painterResource(id = R.drawable.solar_cup),
             contentDescription = "Cup",
             tint = if (selectedIndex == 1) Color.White else Color.Gray
         )
@@ -73,7 +73,7 @@ fun NavBar() {
             modifier = Modifier
                 .size(36.dp)
                 .clickable { selectedIndex = 2 },
-            painter = painterResource(id = R.drawable.ic_group),
+            painter = painterResource(id = R.drawable.charity_group),
             contentDescription = "Groups",
             tint = if (selectedIndex == 2) Color.White else Color.Gray
         )
@@ -82,7 +82,7 @@ fun NavBar() {
             modifier = Modifier
                 .size(24.dp)
                 .clickable { selectedIndex = 3 },
-            painter = painterResource(id = R.drawable.ic_stream),
+            painter = painterResource(id = R.drawable.stream),
             contentDescription = "Stream",
             tint = if (selectedIndex == 3) Color.White else Color.Gray
         )

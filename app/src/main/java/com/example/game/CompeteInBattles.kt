@@ -265,7 +265,7 @@ fun BattleCard() {
                         .size(20.dp)
                         .background(color = Color(0xFF01B752), shape = CircleShape)
                         .clip(CircleShape),
-                    painter = painterResource(id = R.drawable.ic_arrow),
+                    painter = painterResource(id = R.drawable.ph_arrow),
                     contentDescription = "image description",
                     contentScale = ContentScale.FillBounds
                 )
